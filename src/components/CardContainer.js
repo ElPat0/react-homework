@@ -11,7 +11,12 @@ handleCardClick = Card =>{
 
 return (
     <div>
-        
+        <div className="row" id="row1">
+            //cards go here
+        </div>
+        <div className="row" id='row2'>
+            //cards go here
+        </div>
     </div>
 )
 
