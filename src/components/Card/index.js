@@ -7,8 +7,8 @@ function Card(props) {
 
     return (
         <div>
-            <div className="card" style="width: 18rem;">
-                <img src={props.image} class="card-img-top" alt={props.name}></img>
+            <div className="card">
+                <img src={props.image} class="card-img-top" alt={props.name} clicked={props.clicked}></img>
                 <div className="card-body">
                     <p className="card-text">{props.name}</p>
                 </div>
