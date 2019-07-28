@@ -52,4 +52,70 @@ class Main extends Component {
         this.makeRow();
     };
 
+};
+
+handleInputChange = event => {
+    
+    const { name } = event.target;
+    let check = false
+    let newScore = this.state.score;
+
+    const alreadyClicked = this.state.clicked;
+    
+    if (!alreadyClicked) {
+        check = false;
+    }
+    else {
+        for (let i = 0; i < alreadyClicked.length; i++) {
+            
+            if (alreadyClicked[i] == name) {
+                check = true;
+                
+            }
+
+        }
+    };
+    
+
+    if (check === true) {
+        
+        this.setState({ guess: "true" });
+    
+        this.reset();
+    }
+    else {
+        this.state.clicked.push(name);
+        newScore++;
+        this.setState({ score: newScore, guess: "false" });
+        this.makeRow();
+        
+    }
+
+};
+
+render() ;{
+    return (
+        <div>
+            <Scoreboard guess={this.state.guess} score={this.state.score}/>
+            <Scoreboard />
+            <Cardholder>
+                
+                    {this.state.row1.map((images, val) =>
+                        <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={character.name} />)}
+                </Cardholder>
+                <Cardholder>
+                    {this.state.rowTwo.map((character, val) =>
+                        <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={images.name} />)}
+                </Cardholder>
+                <Cardholder>
+                    {this.state.row3.map((images, val) =>
+                        <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={images.name} />)}
+                </Cardholder>
+        
+        </div>
+    );
 }
+
+
+
+export default Main;
