@@ -1,5 +1,5 @@
 import React from "react";
-import "../../images.JSON"S
+import "../../images.JSON";
 import "./style.css";
 
 
