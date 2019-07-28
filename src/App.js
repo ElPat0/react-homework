@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Cardholder />
-      <Scorecard />
+      <Scoreboard />
     </div>
   );
 }
