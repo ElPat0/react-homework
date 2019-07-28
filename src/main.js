@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Cardholder from './components/Cardholder';
 import Scoreboard from './components/Scoreboard';
 import Card from './components/Card';
@@ -15,7 +15,7 @@ makeRow = () => {
     let row3set = [];
 
     for (let i = 0; i < 4; i++) {
-        row1set.push(images[i]);
+        row1set.push(images[i].imageURL);
     };
 
     for (let i = 4; i < 8; i++) {
@@ -44,10 +44,10 @@ class Main extends Component {
     };
 
     reset = () => {
-        this.setState ({
-        name: '',
-        score: '',
-        clicked: []
+        this.setState({
+            name: '',
+            score: '',
+            clicked: []
         });
         this.makeRow();
     };
@@ -55,32 +55,32 @@ class Main extends Component {
 };
 
 handleInputChange = event => {
-    
+
     const { name } = event.target;
     let check = false
     let newScore = this.state.score;
 
     const alreadyClicked = this.state.clicked;
-    
+
     if (!alreadyClicked) {
         check = false;
     }
     else {
         for (let i = 0; i < alreadyClicked.length; i++) {
-            
+
             if (alreadyClicked[i] == name) {
                 check = true;
-                
+
             }
 
         }
     };
-    
+
 
     if (check === true) {
-        
+
         this.setState({ guess: "true" });
-    
+
         this.reset();
     }
     else {
@@ -88,30 +88,30 @@ handleInputChange = event => {
         newScore++;
         this.setState({ score: newScore, guess: "false" });
         this.makeRow();
-        
+
     }
 
 };
 
-render() ;{
+render(); {
     return (
         <div>
-            <Scoreboard guess={this.state.guess} score={this.state.score}/>
+            <Scoreboard guess={this.state.guess} score={this.state.score} />
             <Scoreboard />
             <Cardholder>
-                
-                    {this.state.row1.map((images, val) =>
-                        <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={character.name} />)}
-                </Cardholder>
-                <Cardholder>
-                    {this.state.rowTwo.map((character, val) =>
-                        <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={images.name} />)}
-                </Cardholder>
-                <Cardholder>
-                    {this.state.row3.map((images, val) =>
-                        <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={images.name} />)}
-                </Cardholder>
-        
+
+                {this.state.row1.map((images, val) =>
+                    <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={character.name} />)}
+            </Cardholder>
+            <Cardholder>
+                {this.state.rowTwo.map((character, val) =>
+                    <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={images.name} />)}
+            </Cardholder>
+            <Cardholder>
+                {this.state.row3.map((images, val) =>
+                    <Card onClick={this.handleInputChange} image={images.imageURL} name={images.name} key={images.name} />)}
+            </Cardholder>
+
         </div>
     );
 }
