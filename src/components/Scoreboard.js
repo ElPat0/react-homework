@@ -1,6 +1,6 @@
 import React from "react";
 
-function Scoreboard(){
+function Scoreboard(props){
   
 return(
     <div className="jumbotron jumbotron-fluid">
